@@ -2,37 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>3D Solar System Explorer</title>
+    <title>Realistic Solar System with Music</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="container">
-        <div class="sun"></div>
-        <div class="mercury"></div>
-        <div class="venus"></div>
-        <div class="earth">
-            <div class="moon"></div>
+    <div class="container">
+        <div class="sun-orbit">
+            <div class="sun"></div>
         </div>
-        <div class="mars">
-            <div class="phobos"></div>
-            <div class="deimos"></div>
+        <div class="mercury-orbit"><div class="mercury"></div></div>
+        <div class="venus-orbit"><div class="venus"></div></div>
+        <div class="earth-orbit">
+            <div class="earth">
+                <div class="moon-orbit"><div class="moon"></div></div>
+            </div>
         </div>
-        <div class="jupiter">
-            <div class="io"></div>
-            <div class="europa"></div>
+        <div class="mars-orbit">
+            <div class="mars">
+                <div class="phobos-orbit"><div class="phobos"></div></div>
+                <div class="deimos-orbit"><div class="deimos"></div></div>
+            </div>
         </div>
-        <div class="saturn">
-            <div class="titan"></div>
+        <div class="jupiter-orbit">
+            <div class="jupiter">
+                <div class="io-orbit"><div class="io"></div></div>
+                <div class="europa-orbit"><div class="europa"></div></div>
+                <div class="ganymede-orbit"><div class="ganymede"></div></div>
+                <div class="callisto-orbit"><div class="callisto"></div></div>
+            </div>
         </div>
-        <div class="uranus">
-            <div class="titania"></div>
+        <div class="saturn-orbit">
+            <div class="saturn">
+                <div class="titan-orbit"><div class="titan"></div></div>
+                <div class="enceladus-orbit"><div class="enceladus"></div></div>
+            </div>
         </div>
-        <div class="neptune">
-            <div class="triton"></div>
+        <div class="uranus-orbit">
+            <div class="uranus">
+                <div class="titania-orbit"><div class="titania"></div></div>
+            </div>
+        </div>
+        <div class="neptune-orbit">
+            <div class="neptune">
+                <div class="triton-orbit"><div class="triton"></div></div>
+            </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Audio Element -->
+    <audio autoplay loop>
+        <source src="audio/breath-of-life_10-minutes-320859.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <script src="script.js"></script>
 </body>
 </html>
