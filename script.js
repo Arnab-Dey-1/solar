@@ -1,8 +1,5 @@
-// Basic script with optional audio control for browser compatibility
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Solar System Loaded with Background Music!");
-
-    // Handle audio autoplay restrictions (some browsers require interaction)
     const audio = document.querySelector("audio");
     let isFirstInteraction = true;
 
