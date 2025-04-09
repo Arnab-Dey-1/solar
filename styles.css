@@ -15,7 +15,6 @@ body {
     position: relative;
 }
 
-/* These classes are placeholders; actual rendering is done by Three.js */
 .sun, .mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune,
 .moon, .phobos, .deimos, .io, .europa, .titan, .titania, .triton {
     position: absolute;
