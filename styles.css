@@ -6,6 +6,10 @@ body {
     justify-content: center;
     background-color: #000;
     overflow: hidden;
+    /* Disable zoom on desktop */
+    zoom: 1 !important; /* Forces zoom level to 100% */
+    -webkit-text-size-adjust: none; /* Prevents text scaling on mobile */
+    user-scalable: no; /* Additional zoom prevention */
 }
 
 .container {
