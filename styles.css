@@ -4,18 +4,111 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    background-color: #000;
     overflow: hidden;
 }
 
 .container {
-    font-size: 10px;
+    font-size: 8px;
     width: 40em;
     height: 40em;
     position: relative;
 }
 
-.sun, .mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune,
-.moon, .phobos, .deimos, .io, .europa, .titan, .titania, .triton {
+/* Sun with Orbit */
+.sun-orbit {
     position: absolute;
+    top: 18em;
+    left: 18em;
+    width: 4em;
+    height: 4em;
+    animation: orbit 50s linear infinite;
+}
+
+.sun {
+    position: absolute;
+    top: -3em;
+    left: -3em;
+    width: 10em;
+    height: 10em;
+    background: radial-gradient(circle, #ffeb3b, #ff9800);
+    border-radius: 50%;
+    box-shadow: 0 0 2em rgba(255, 152, 0, 0.7), inset 0 0 1em #ff5722;
+    animation: rotate 10s linear infinite;
+    z-index: 0;
+}
+
+/* 8 Planetary Orbits */
+.mercury-orbit { top: 15em; left: 15em; width: 10em; height: 10em; border: 0.1em dashed #555; animation: orbit 8s linear infinite; }
+.venus-orbit { top: 13em; left: 13em; width: 14em; height: 14em; border: 0.1em dashed #555; animation: orbit 15s linear infinite; }
+.earth-orbit { top: 10em; left: 10em; width: 20em; height: 20em; border: 0.1em dashed #555; animation: orbit 20s linear infinite; }
+.mars-orbit { top: 7em; left: 7em; width: 26em; height: 26em; border: 0.1em dashed #555; animation: orbit 25s linear infinite; }
+.jupiter-orbit { top: 4em; left: 4em; width: 32em; height: 32em; border: 0.1em dashed #555; animation: orbit 40s linear infinite; }
+.saturn-orbit { top: 1em; left: 1em; width: 38em; height: 38em; border: 0.1em dashed #555; animation: orbit 50s linear infinite; }
+.uranus-orbit { top: -2em; left: -2em; width: 44em; height: 44em; border: 0.1em dashed #555; animation: orbit 60s linear infinite; }
+.neptune-orbit { top: -5em; left: -5em; width: 50em; height: 50em; border: 0.1em dashed #555; animation: orbit 70s linear infinite; }
+
+/* Planets Aligned with Orbits */
+.mercury { top: 0.5em; right: 0.5em; width: 0.8em; height: 0.8em; background: radial-gradient(circle at 40% 40%, #ccc, #666, #444); z-index: 1; }
+.venus { top: 7em; right: -1.2em; width: 1.2em; height: 1.2em; background: radial-gradient(circle at 30% 30%, #ffcc80, #ff8f00, #e65100); }
+.earth { top: 10em; right: -1.5em; width: 1.5em; height: 1.5em; background: radial-gradient(circle at 30% 30%, #4fc3f7, #0288d1, #01579b); }
+.mars { top: 13em; right: -1em; width: 1em; height: 1em; background: radial-gradient(circle at 40% 40%, #ff8a65, #d84315, #bf360c); }
+.jupiter { top: 16em; right: -3em; width: 3em; height: 3em; background: radial-gradient(circle at 50% 50%, #ffccbc, #bcaaa4, #8d6e63); }
+.saturn { top: 19em; right: -2.5em; width: 2.5em; height: 2.5em; background: radial-gradient(circle at 40% 40%, #fff9c4, #bcaaa4, #8d5524); }
+.uranus { top: 22em; right: -2em; width: 2em; height: 2em; background: radial-gradient(circle at 30% 30%, #b3e5fc, #4fc3f7, #0288d1); }
+.neptune { top: 25em; right: -2em; width: 2em; height: 2em; background: radial-gradient(circle at 30% 30%, #42a5f5, #1976d2, #0d47a1); }
+
+/* Moon Orbits */
+.moon-orbit { top: -1em; right: -1em; width: 3em; height: 3em; animation: orbit 2s linear infinite; }
+.phobos-orbit { top: -0.8em; right: -0.8em; width: 2em; height: 2em; animation: orbit 0.8s linear infinite; }
+.deimos-orbit { top: -1em; right: -1em; width: 2.5em; height: 2.5em; animation: orbit 1.2s linear infinite; }
+.io-orbit { top: -1.5em; right: -1.5em; width: 4em; height: 4em; animation: orbit 1.5s linear infinite; }
+.europa-orbit { top: -2em; right: -2em; width: 5em; height: 5em; animation: orbit 2.5s linear infinite; }
+.ganymede-orbit { top: -2.5em; right: -2.5em; width: 6em; height: 6em; animation: orbit 3s linear infinite; }
+.callisto-orbit { top: -3em; right: -3em; width: 7em; height: 7em; animation: orbit 4s linear infinite; }
+.titan-orbit { top: -2em; right: -2em; width: 5em; height: 5em; animation: orbit 3s linear infinite; }
+.enceladus-orbit { top: -1.5em; right: -1.5em; width: 3.5em; height: 3.5em; animation: orbit 2s linear infinite; }
+.titania-orbit { top: -1.5em; right: -1.5em; width: 4em; height: 4em; animation: orbit 2.5s linear infinite; }
+.triton-orbit { top: -1.5em; right: -1.5em; width: 4em; height: 4em; animation: orbit 3s linear infinite; }
+
+/* Moons */
+.moon { top: 0.3em; right: 0.3em; width: 0.4em; height: 0.4em; background: radial-gradient(circle at 40% 40%, #ddd, #999, #666); }
+.phobos { top: 0.2em; right: 0.2em; width: 0.3em; height: 0.3em; background: radial-gradient(circle at 40% 40%, #bcaaa4, #8d6e63); }
+.deimos { top: 0.2em; right: 0.2em; width: 0.2em; height: 0.2em; background: radial-gradient(circle at 40% 40%, #bcaaa4, #6d4c41); }
+.io { top: 0.4em; right: 0.4em; width: 0.5em; height: 0.5em; background: radial-gradient(circle at 40% 40%, #fff59d, #fbc02d, #f9a825); }
+.europa { top: 0.4em; right: 0.4em; width: 0.4em; height: 0.4em; background: radial-gradient(circle at 40% 40%, #eceff1, #cfd8dc, #b0bec5); }
+.ganymede { top: 0.5em; right: 0.5em; width: 0.6em; height: 0.6em; background: radial-gradient(circle at 40% 40%, #d7ccc8, #a1887f, #8d6e63); }
+.callisto { top: 0.5em; right: 0.5em; width: 0.5em; height: 0.5em; background: radial-gradient(circle at 40% 40%, #d7ccc8, #8d6e63, #5d4037); }
+.titan { top: 0.5em; right: 0.5em; width: 0.6em; height: 0.6em; background: radial-gradient(circle at 40% 40%, #ffca28, #ffa000, #ff8f00); }
+.enceladus { top: 0.3em; right: 0.3em; width: 0.3em; height: 0.3em; background: radial-gradient(circle at 40% 40%, #eceff1, #b0bec5); }
+.titania { top: 0.4em; right: 0.4em; width: 0.5em; height: 0.5em; background: radial-gradient(circle at 40% 40%, #cfd8dc, #90a4ae, #607d8b); }
+.triton { top: 0.4em; right: 0.4em; width: 0.5em; height: 0.5em; background: radial-gradient(circle at 40% 40%, #b0bec5, #78909c, #546e7a); }
+
+/* Common Styles */
+.sun-orbit,
+.mercury-orbit, .venus-orbit, .earth-orbit, .mars-orbit, .jupiter-orbit, .saturn-orbit, .uranus-orbit, .neptune-orbit,
+.moon-orbit, .phobos-orbit, .deimos-orbit, .io-orbit, .europa-orbit, .ganymede-orbit, .callisto-orbit,
+.titan-orbit, .enceladus-orbit, .titania-orbit, .triton-orbit {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune,
+.moon, .phobos, .deimos, .io, .europa, .ganymede, .callisto, .titan, .enceladus, .titania, .triton {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset -0.2em -0.2em 0.3em rgba(0, 0, 0, 0.3), 0 0 0.2em #fff;
+}
+
+/* Animations */
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
 }
