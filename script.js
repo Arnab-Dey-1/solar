@@ -3,7 +3,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.getElementById('container').appendChild(renderer.domElement);
 
 // Orbit Controls for Zoom and Pan
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -14,12 +14,12 @@ controls.maxDistance = 200;
 
 // Sun
 const sunGeometry = new THREE.SphereGeometry(5, 32, 32);
-const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 }); // Yellow Sun
+const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 sun.position.set(0, 0, 0); // Ensure Sun is at the center
 scene.add(sun);
 
-// Planet Data (Simplified, No Textures)
+// Planet Data
 const planets = [
     { name: "mercury", radius: 0.2, distance: 10, speed: 0.02, color: 0xaaaaaa, moons: [] },
     { name: "venus", radius: 0.4, distance: 15, speed: 0.015, color: 0xffcc00, moons: [] },
@@ -49,16 +49,15 @@ const planets = [
 const planetMeshes = [];
 planets.forEach(planet => {
     const geometry = new THREE.SphereGeometry(planet.radius, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: planet.color });
+    const material = new THREE.MeshBasicMaterial({ color: planet.color }); // Simplified to MeshBasicMaterial
     const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.x = planet.distance; // Initial position
+    mesh.position.x = planet.distance;
     scene.add(mesh);
     planetMeshes.push({ mesh, planet });
 
-    // Moons
     planet.moons.forEach(moon => {
         const moonGeometry = new THREE.SphereGeometry(moon.radius, 16, 16);
-        const moonMaterial = new THREE.MeshBasicMaterial({ color: moon.color });
+        const moonMaterial = new THREE.MeshBasicMaterial({ color: moon.color || 0xaaaaaa });
         const moonMesh = new THREE.Mesh(moonGeometry, moonMaterial);
         moonMesh.position.x = moon.distance;
         mesh.add(moonMesh);
@@ -66,9 +65,9 @@ planets.forEach(planet => {
     });
 });
 
-// Starfield (Reduced for Simplicity)
+// Starfield (Simplified)
 const starGeometry = new THREE.BufferGeometry();
-const starCount = 1000; // Reduced from 10,000
+const starCount = 1000; // Reduced for performance
 const positions = new Float32Array(starCount * 3);
 for (let i = 0; i < starCount; i++) {
     positions[i * 3] = (Math.random() - 0.5) * 1000;
@@ -86,17 +85,15 @@ light.position.set(0, 0, 0);
 scene.add(light);
 
 // Camera Position (Top-Down View)
-camera.position.set(0, 100, 0);
-camera.lookAt(0, 0, 0);
+camera.position.set(0, 100, 0); // Position above the solar system
+camera.lookAt(0, 0, 0); // Look at the Sun (center)
 
 // Animation Loop
 function animate() {
     requestAnimationFrame(animate);
 
-    // Rotate Sun
     sun.rotation.y += 0.01;
 
-    // Orbit Planets and Moons
     planetMeshes.forEach(({ mesh, planet }) => {
         mesh.position.x = Math.cos(Date.now() * planet.speed / 1000) * planet.distance;
         mesh.position.z = Math.sin(Date.now() * planet.speed / 1000) * planet.distance;
